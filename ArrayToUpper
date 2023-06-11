@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+public class ArrayToUpper {
+
+    public static String[] upper(String[] words) {
+        return Helper(words, 0);
+    }
+
+    private static String[] Helper(String[] words, int index) {
+        // Base case
+        if (index == words.length) {
+            return new String[0];
+        }
+
+        // Recursive call
+        String currentWord = words[index];
+        String[] upper = Helper(words, index + 1);
+        String[] result = new String[upper.length + 1];
+        result[0] = currentWord.toUpperCase();
+        System.arraycopy(upper, 0, result, 1, upper.length);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String[] words = {"foo", "bar", "world"};
+        String[] upper = upper(words);
+        System.out.println("uppercase: " + Arrays.toString(upper));
+    }
+}
