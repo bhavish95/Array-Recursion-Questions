@@ -1,0 +1,24 @@
+import java.util.List;
+
+public class ProductArray {
+
+    public static int Product(List<Integer> numbers) {
+        return Helper(numbers, 0);
+    }
+
+    private static int Helper(List<Integer> numbers, int index) {
+        
+        if (index == numbers.size()) {
+            return 1;
+        }
+        int currentNumber = numbers.get(index);
+        int productOfRemainingNumbers = Helper(numbers, index + 1);
+        return currentNumber * productOfRemainingNumbers;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 4, 5, 10);
+        int product = Product(numbers);
+        System.out.println("Product: " + product);
+    }
+}
