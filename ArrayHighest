@@ -1,0 +1,18 @@
+public class RecursiveMaxElement {
+    public static int findMax(int[] arr, int startIndex, int endIndex) {
+        if (startIndex == endIndex) {
+            return arr[startIndex];
+        } else {
+            int mid = (startIndex + endIndex) / 2;
+            int leftMax = findMax(arr, startIndex, mid);
+            int rightMax = findMax(arr, mid + 1, endIndex);
+            return Math.max(leftMax, rightMax);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = { 5, 8, 2, 10, 3 };
+        int maxElement = findMax(array, 0, array.length - 1);
+        System.out.println("The highest element in the array is: " + maxElement);
+    }
+}
