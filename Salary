@@ -1,0 +1,18 @@
+import java.util.Arrays;
+
+public class Salary {
+    public static double[] addTax(double[] salaries, int index) {
+        if (index == salaries.length) {
+            return salaries;
+        } else {
+            salaries[index] = salaries[index] + (salaries[index] * 0.1); // Add 10% tax
+            return addTax(salaries, index + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        double[] salaries = { 50000.0, 60000.0, 75000.0, 90000.0 };
+        double[] salariesWithTax = addTax(salaries, 0);
+        System.out.println("Salaries with tax: " + Arrays.toString(salariesWithTax));
+    }
+}
